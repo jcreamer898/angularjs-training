@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<!--[if IE 7]><html class='no-js ie7 no-freight base' lang='en'><![endif]-->
+<!--[if IE 8]><html class='no-js ie8 no-freight base' lang='en'><![endif]-->
+<!--[if IE 9]><html class='no-js ie9 no-freight base' lang='en'><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class='no-js no-freight base' lang='en'>
+<!--<![endif]-->
+
+<head>
+    <title>Test - Lonely Planet’s Unexpected Drives</title>
+    <link data-require="bootstrap-css@3.1.1" data-semver="3.1.1" rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <link data-require="kendoUI@2014.2.716" data-semver="2014.2.716" rel="stylesheet" href="http://cdn.kendostatic.com/2014.2.716/styles/kendo.common.min.css" />
+    <link data-require="kendoUI@2014.2.716" data-semver="2014.2.716" rel="stylesheet" href="http://cdn.kendostatic.com/2014.2.716/styles/kendo.default.min.css" />
+    
+   
+    <link href='http://assets.staticlp.com/assets/icons/critical-61c505d7e0e3b1b88c04ea09c3cd3fcc.css' rel='stylesheet'>
+    <link href="../common/style.css" rel="stylesheet" />
+  
+    <script data-require="jquery@*" data-semver="2.1.1" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script data-require="kendoUI@2014.2.716" data-semver="2014.2.716" src="http://cdn.kendostatic.com/2014.2.716/js/kendo.all.min.js"></script>
+    <script data-require="angular.js@1.3.0-beta.19" data-semver="1.3.0-beta.19" src="https://code.angularjs.org/1.3.0-beta.19/angular.js"></script>
+    <script data-require="bootstrap@3.1.1" data-semver="3.1.1" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script data-require="angular-mocks@1.2.16" data-semver="1.2.16" src="https://code.angularjs.org/1.2.16/angular-mocks.js"></script>
+    <script data-require="angular-resource@1.2.14" data-semver="1.2.14" src="http://code.angularjs.org/1.2.14/angular-resource.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="data.js"></script>
+    <script src="controllers.js"></script>
+    <script src="directives.js"></script>
+    <script src="services.js"></script>
+    <script src="app.js"></script>
+
+    <link href="http://assets.staticlp.com/assets/core-60099bc5a0699b77517c8d02867fa6eb.css" media="all" rel="stylesheet" />
+</head>
+
+<body class="responsive" ng-app="introToAngularApp">
+    <div class="wrapper js-wrapper">
+        <div class='row--primary' id='js-primary-nav'>
+            <div class='row--faux-banner'></div>
+            <input class='is-hidden' id='nav--primary__trigger' type='checkbox'>
+            <label class='copy--h2 wv--hidden nav--primary__trigger icon--hamburger--before icon--white--before js-toggle-active' data-toggle-class='show-nav' data-toggle-target='body' for='nav--primary__trigger'>Menu</label>
+            <a class='media--lp-logo logo--header icon--lp-logo icon--white' href='http://www.lonelyplanet.com' title='Return to homepage'></a>
+            <div class='nav-container m-hidden-menu'>
+                <div class='wv--split--right'>
+                    <div class='wv--nav--inline split--right__inner nav--user'>
+                        <form action='//www.lonelyplanet.com/search' class='search--primary search--primary-wv js-nav-search wv--inline-block' method='get' role='search'>
+                            <label class='accessibility' for='search-q'>Search</label>
+                            <input autocomplete='off' class='search__input search__input--primary js-primary-search' id='search-q' maxlength='2048' name='q' placeholder='Enter your search term' tabindex='1' type='search' value=''>
+                            <button class='icon--search icon--white js-search-icon search__button search__input__icon' id='search-q-submit' type='submit'>
+                                Search
+                            </button>
+                        </form>
+                        <nav aria-label='User navigation' class='nav__item wv--nav--inline nav--primary--user js-user-nav split--right__inner' itemscope='itemscope' itemtype='http://schema.org/SiteNavigationElement' role='navigation' title='User navigation'>
+                            <h6 class='accessibility'>User navigation</h6>
+                            <a class='nav__item nav__item--primary nav__item--user user-basket wv--inline-block js-user-basket js-nav-cart' href='http://shop.lonelyplanet.com/cart/view'>
+                                <span class='user-basket__icon icon--shop-basket icon--white' itemprop='name'>
+                                View Basket
+                                </span>
+                            </a>
+                            <script id='js-user-nav-template' type='text/mustache'>
+                                <div class='js-user-signed-out-template'>
+                                    <div class='wv--nav--inline nav__item--user-menu js-user-signed-out'>
+                                        <a class='js-nav-item js-user-sign_in nav__item nav__item--primary sign-in' data-lpa-action='sign-in' data-lpa-category='account' href='https://auth.lonelyplanet.com/users/sign_in' itemprop='url'>
+                                            <div class='nav__icon icon--user--before icon--white--before wv--hidden--before nav__submenu__item__text' itemprop='name'>
+                                                Sign in</div>
+                                        </a>
+
+                                        <a class='btn--linkblue js-nav-item js-user-sign_up nav__item nav__item--primary' data-lpa-action='join' data-lpa-category='account' href='https://auth.lonelyplanet.com/users/sign_up' itemprop='url'>
+                                            <div class='nav__icon icon--sign-in--before icon--white--before wv--hidden--before nav__submenu__item__text' itemprop='name'>
+                                                Join</div>
+                                        </a>
+
+                                    </div>
+                                    <div class='wv--nav--inline nav__item--user-menu--wv js-user-signed-out'>
+                                        <a class='btn btn--linkblue btn--small js-nav-item js-user-sign_up nav__item nav__item--primary' data-lpa-action='join' data-lpa-category='account' href='https://auth.lonelyplanet.com/users/sign_up' itemprop='url'>
+                                            <div class='nav__icon icon--sign-in--before icon--white--before wv--hidden--before nav__submenu__item__text' itemprop='name'>
+                                                Join</div>
+                                        </a>
+
+                                        <span class='nav__item nav__item--primary or'>
+                                        or
+                                        </span>
+
+                                        <a class='js-nav-item js-user-sign_in nav__item nav__item--primary sign-in' data-lpa-action='sign-in' data-lpa-category='account' href='https://auth.lonelyplanet.com/users/sign_in' itemprop='url'>
+                                            <div class='nav__icon icon--user--before icon--white--before wv--hidden--before nav__submenu__item__text' itemprop='name'>
+                                                Sign in</div>
+                                        </a>
+
+                                    </div>
+
+                                </div>
+                                <div class='js-user-signed-in-template'>
+                                    <div class='nav__item nav__item--user nav__submenu__trigger js-user-signed-in'>
+                                        <img class='nav__item--user-avatar js-user-avatar' data-src=''>
+                                        <span class='notification-badge notification-badge--unread-messages wv--inline-block is-hidden js-unread-feed-count'>0</span>
+                                        <span class='wv--hidden nav--offscreen__title'></span>
+                                        <div class='user-feed nav__submenu js-user-feed'>
+                                            <div class='user-feed__container nav--stacked nav__submenu__content icon--tapered-arrow-up--after icon--white--after icon--white--bordered'>
+                                                <div class='user-feed__header js-user-feed-header'>
+                                                    <div class='user-feed__username'></div>
+                                                    <div class='user-feed__email'></div>
+                                                    <div class='user-feed__buttons'>
+                                                        <a class='split--right icon--settings icon--body-grey js-user-settings' href='https://www.lonelyplanet.com/thorntree/forums/settings'></a>
+                                                        <div class='grid-wrapper--10'>
+                                                            <div class='col--one-half'>
+                                                                <a class='btn btn--linkblue btn--small btn--full-width js-user-profile' href='https://www.lonelyplanet.com/thorntree/profiles/'>View Profile</a>
+                                                            </div>
+                                                            <div class='col--one-half'>
+                                                                <a class='btn btn--linkblue btn--small btn--outline btn--full-width js-user-sign_out' href='https://auth.lonelyplanet.com/users/sign_out'>Sign Out</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class='user-feed__content js-user-feed-content'>
+                                                    <div class='nav__tabs'>
+                                                        <div class='grid-wrapper--0'>
+                                                            <div class='col--one-half'>
+                                                                <a class='btn btn--large btn--white nav__tabs__btn js-tab-trigger is-active' href='#js-user-feed-activities-list'>
+                                                                Recent activity
+                                                                <span class='user-feed__content__unread-count js-unread-activities-count'></span>
+                                                                </a>
+                                                            </div>
+                                                            <div class='col--one-half'>
+                                                                <a class='btn btn--large btn--white nav__tabs__btn js-tab-trigger' href='#js-user-feed-messages-list'>
+                                                                Messages
+                                                                <span class='user-feed__content__unread-count js-unread-messages-count'></span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class='nav__tabs__content js-tabs-content'>
+                                                        <ul class='user-feed__list is-active' id='js-user-feed-activities-list'>
+                                                            <li class='activity-list__item--empty'>You have no recent activity.</li>
+                                                        </ul>
+                                                        <ul class='user-feed__list' id='js-user-feed-messages-list'>
+                                                            <li class='activity-list__item--empty'>You have no private messages.</li>
+                                                            <li class='user-feed__footer user-feed__buttons js-user-feed-footer is-hidden'>
+                                                                <a class='btn btn--linkblue btn--full-width' href='https://www.lonelyplanet.com/thorntree/profiles//messages'>See all messages</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='wv--nav--inline nav__item--user-menu js-user-signed-in'>
+                                        <a class='js-nav-item nav__item nav__item--primary' href='https://www.lonelyplanet.com/thorntree/profiles/' itemprop='url'>
+                                            <div class='nav__icon icon--user--before icon--white--before wv--hidden--before nav__submenu__item__text' itemprop='name'>
+                                                My profile</div>
+                                        </a>
+
+                                        <a class='js-nav-item nav__item nav__item--primary' href='https://www.lonelyplanet.com/thorntree/forums/settings' itemprop='url'>
+                                            <div class='nav__icon icon--settings--before icon--white--before wv--hidden--before nav__submenu__item__text' itemprop='name'>
+                                                Settings</div>
+                                        </a>
+
+                                        <a class='js-nav-item js-responsive-messages nav__item nav__item--primary' href='https://www.lonelyplanet.com/thorntree/profiles//messages' itemprop='url'>
+                                            <div class='nav__icon icon--envelope--before icon--white--before wv--hidden--before nav__submenu__item__text' itemprop='name'>
+                                                Messages</div>
+                                        </a>
+
+                                        <a class='js-nav-item nav__item nav__item--primary' href='https://www.lonelyplanet.com/thorntree/profiles//activities' itemprop='url'>
+                                            <div class='nav__icon icon--comment--before icon--white--before wv--hidden--before nav__submenu__item__text' itemprop='name'>
+                                                Forum Activity</div>
+                                        </a>
+
+                                        <a class='js-nav-item nav__item nav__item--primary' href='https://auth.lonelyplanet.com/users/sign_out' itemprop='url'>
+                                            <div class='nav__icon icon--sign-out--before icon--white--before wv--hidden--before nav__submenu__item__text' itemprop='name'>
+                                                Sign out</div>
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                            </script>
+                            <noscript>
+                                <div class='nav__item nav__item--user'>
+                                    <a class='js-nav-item nav__item nav__item--primary' href='https://www.lonelyplanet.com/thorntree/my_account' itemprop='url'>
+                                        <div class='nav__icon icon--user--line--before icon--white--before wv--hidden--before nav__submenu__item__text' itemprop='name'>
+                                            My account</div>
+                                    </a>
+
+                                </div>
+                            </noscript>
+                        </nav>
+                    </div>
+                </div>
+                <div class='wv--split--left'>
+                    <nav aria-label='Global navigation' class='wv--nav--inline nav--primary' id='js-nav--primary' itemscope='itemscope' itemtype='http://schema.org/SiteNavigationElement' role='navigation'>
+                        <h6 class='accessibility'>Global navigation</h6>
+                        <a class='js-nav-item nav__item nav__item--primary wv--hidden' href='http://www.lonelyplanet.com/search' itemprop='url'>
+                            <div class='nav__icon icon--search--before icon--white--before wv--hidden--before nav__submenu__item__text' itemprop='name'>
+                                Search</div>
+                        </a>
+
+                        <div class='nav__submenu__trigger nav__item nav__item--primary'>
+                            <a class='js-nav-item nav__item' href='http://www.lonelyplanet.com/places' itemprop='url'>
+                                <div class='nav__icon icon--place--pin--line--before icon--white--before wv--hidden--before nav__submenu__item__text' itemprop='name'>
+                                    Destinations</div>
+                            </a>
+                            <div class='nav__submenu'>
+                                <div class='nav--stacked nav__submenu__content js-submenu icon--tapered-arrow-up--after icon--white--after'>
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/best-in-travel' itemprop='url'>
+                                        <div class=' nav__submenu__item__text' itemprop='name'>
+                                            Best in travel<span class='badge--pink nav__item__badge'>
+                                            Featured</span>
+                                        </div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/africa' itemprop='url'>
+                                        <div class=' nav__submenu__item__text' itemprop='name'>
+                                            Africa</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/antarctica' itemprop='url'>
+                                        <div class=' nav__submenu__item__text' itemprop='name'>
+                                            Antarctica</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/asia' itemprop='url'>
+                                        <div class=' nav__submenu__item__text' itemprop='name'>
+                                            Asia</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/caribbean' itemprop='url'>
+                                        <div class=' nav__submenu__item__text' itemprop='name'>
+                                            Caribbean</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/central-america' itemprop='url'>
+                                        <div class=' nav__submenu__item__text' itemprop='name'>
+                                            Central America</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/europe' itemprop='url'>
+                                        <div class=' nav__submenu__item__text' itemprop='name'>
+                                            Europe</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/middle-east' itemprop='url'>
+                                        <div class=' nav__submenu__item__text' itemprop='name'>
+                                            Middle East</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/north-america' itemprop='url'>
+                                        <div class=' nav__submenu__item__text' itemprop='name'>
+                                            North America</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/pacific' itemprop='url'>
+                                        <div class=' nav__submenu__item__text' itemprop='name'>
+                                            Pacific</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/south-america' itemprop='url'>
+                                        <div class=' nav__submenu__item__text' itemprop='name'>
+                                            South America</div>
+                                    </a>
+
+                                    <div class='nav__submenu__button'>
+                                        <a class='btn btn--linkblue btn--medium btn--full-width' href='/places'>
+View countries
+</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class='nav__submenu__trigger nav__item nav__item--primary'>
+                            <a class='js-nav-item nav__item' href='http://www.lonelyplanet.com/inspiration' itemprop='url'>
+                                <div class='nav__icon icon--adventure-travel--before icon--white--before wv--hidden--before nav__submenu__item__text' itemprop='name'>
+                                    Inspiration</div>
+                            </a>
+                            <div class='nav__submenu'>
+                                <div class='nav--stacked nav__submenu__content js-submenu icon--tapered-arrow-up--after icon--white--after'>
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/adventure-travel' itemprop='url'>
+                                        <div class='nav__icon icon--adventure-travel--before  nav__submenu__item__text' itemprop='name'>
+                                            Adventure travel</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/beaches' itemprop='url'>
+                                        <div class='nav__icon icon--beaches--before  nav__submenu__item__text' itemprop='name'>
+                                            Beaches</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/budget-travel' itemprop='url'>
+                                        <div class='nav__icon icon--budget-travel--before  nav__submenu__item__text' itemprop='name'>
+                                            Budget travel</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/coasts-and-islands' itemprop='url'>
+                                        <div class='nav__icon icon--coasts-and-islands--before  nav__submenu__item__text' itemprop='name'>
+                                            Coasts and islands</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/family-travel' itemprop='url'>
+                                        <div class='nav__icon icon--family-travel--before  nav__submenu__item__text' itemprop='name'>
+                                            Family travel</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/festivals-and-events' itemprop='url'>
+                                        <div class='nav__icon icon--festivals-and-events--before  nav__submenu__item__text' itemprop='name'>
+                                            Festivals and events</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/food-and-drink' itemprop='url'>
+                                        <div class='nav__icon icon--food-and-drink--before  nav__submenu__item__text' itemprop='name'>
+                                            Food and drink</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/honeymoons-and-romance' itemprop='url'>
+                                        <div class='nav__icon icon--honeymoons-and-romance--before  nav__submenu__item__text' itemprop='name'>
+                                            Honeymoons and romance</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/luxury-travel' itemprop='url'>
+                                        <div class='nav__icon icon--luxury-travel--before  nav__submenu__item__text' itemprop='name'>
+                                            Luxury travel</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/round-the-world-travel' itemprop='url'>
+                                        <div class='nav__icon icon--round-the-world-travel--before  nav__submenu__item__text' itemprop='name'>
+                                            Round the world travel</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/wildlife-and-nature' itemprop='url'>
+                                        <div class='nav__icon icon--wildlife-and-nature--before  nav__submenu__item__text' itemprop='name'>
+                                            Wildlife and nature</div>
+                                    </a>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <a class='js-nav-item nav__item nav__item--primary' href='http://shop.lonelyplanet.com' itemprop='url'>
+                            <div class='nav__icon icon--shop-basket--line--before icon--white--before wv--hidden--before nav__submenu__item__text' itemprop='name'>
+                                Shop</div>
+                        </a>
+
+                        <a class='js-nav-item nav__item nav__item--primary' href='http://www.lonelyplanet.com/thorntree' itemprop='url'>
+                            <div class='nav__icon icon--comment--line--before icon--white--before wv--hidden--before nav__submenu__item__text' itemprop='name'>
+                                Thorn Tree Forum</div>
+                        </a>
+
+                        <div class='nav__submenu__trigger nav__item nav__item--primary'>
+                            <a class='js-nav-item nav__item' href='http://www.lonelyplanet.com/bookings/' itemprop='url'>
+                                <div class='nav__icon icon--flights--line--before icon--white--before wv--hidden--before nav__submenu__item__text' itemprop='name'>
+                                    Bookings</div>
+                            </a>
+                            <div class='nav__submenu'>
+                                <div class='nav--stacked nav__submenu__content js-submenu icon--tapered-arrow-up--after icon--white--after'>
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/hotels' itemprop='url'>
+                                        <div class='nav__icon icon--hotel--before  nav__submenu__item__text' itemprop='name'>
+                                            Hotels</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/flights/' itemprop='url'>
+                                        <div class='nav__icon icon--flights--before  nav__submenu__item__text' itemprop='name'>
+                                            Flights</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/car-rental/' itemprop='url'>
+                                        <div class='nav__icon icon--car--before  nav__submenu__item__text' itemprop='name'>
+                                            Car rental</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/adventure-tours/' itemprop='url'>
+                                        <div class='nav__icon icon--tour--before  nav__submenu__item__text' itemprop='name'>
+                                            Adventure tours</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/sightseeing-tours/' itemprop='url'>
+                                        <div class='nav__icon icon--activity--before  nav__submenu__item__text' itemprop='name'>
+                                            Sightseeing tours</div>
+                                    </a>
+
+                                    <a class='js-nav-item nav__item nav__submenu__item' href='http://www.lonelyplanet.com/airport-transfers/' itemprop='url'>
+                                        <div class='nav__icon icon--transfers--before  nav__submenu__item__text' itemprop='name'>
+                                            Airport transfers</div>
+                                    </a>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <a class='js-nav-item nav__item nav__item--primary' href='http://www.lonelyplanet.com/travel-insurance' itemprop='url'>
+                            <div class='nav__icon icon--insurance--line--before icon--white--before wv--hidden--before nav__submenu__item__text' itemprop='name'>
+                                Insurance</div>
+                        </a>
+
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+        <div class='row row--sponsored row--leaderboard row--leaderboard--header'>
+            <div class='ad-leaderboard'>
+                <div class='ad-leaderboard__inner'>
+                    <div class='adunit adunit--leaderboard' data-size-mapping='leaderboard' data-targeting='{"position":"header"}'></div>
+
+                    <div class='ad-leaderboard__sponsor'>
+                        <div id='js-sponsor-logo-html'>
+                            <div style='display: none'>
+                                <div class='adunit' data-size-mapping='sponsor-logo-html' data-targeting='{"position":"header"}'></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row--content" id="js-row--content">
+          <div class="row__inner row__inner--content">
+            <div class="grid-wrapper--10">
+              <div class="col--one-whole">
+
+                <!-- =================================================== Begin Lab =================================================== -->
+  
+                <div ng-controller="ReservationCtrl as vm">
+                  <ul>
+                    <li ng-repeat="item in vm.list">
+                        {{item.name}} for {{item.qty}} at {{item.time | date: 'medium'}}
+                    </li>
+                  </ul>
+                  <form name="reservations" class="form" ng-class="{ 'submitted': vm.submitted }" novalidate="" ng-submit="vm.create()">
+                    
+                    <div ng-if="reservations.$submitted && reservations.$invalid" class="alert--block alert alert--error">
+                      <div ng-if="reservations.qty.$error.number" class="alert__inner icon--cross--before row__inner">
+                        <div class="alert__content">Please use a valid number</div> 
+                      </div>
+                      <div ng-if="reservations.qty.$error.required" class="alert__inner icon--cross--before row__inner">
+                        <div class="alert__content">Please fill in a number</div> 
+                      </div>
+                    
+                      <div ng-if="reservations.name.$error.required" class="alert__inner icon--cross--before row__inner">
+                        <div class="alert__content">Please fill in a name</div> 
+                      </div>
+
+                      <div ng-if="reservations.time.$error.required" class="alert__inner icon--cross--before row__inner">
+                        <div class="alert__content">Please fill in a date</div> 
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input name="name" type="text" ng-model="vm.reservation.name" class="form-control" placeholder="Name" required="" />
+                    </div>
+                    <div class="form-group">
+                        <input name="qty" type="number" ng-model="vm.reservation.qty" class="form-control" placeholder="Quantity" required="" />
+                    </div>
+                    <div class="form-group">
+                        <input name="time" type="text" a2-date-picker ng-model="vm.reservation.time" placeholder="Date" required="" />
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Create</button>
+                        <button ng-click="vm.clear()" type="reset" class="btn btn-danger">Reset</button>
+                    </div>
+                  </form>
+                </div>
+
+                <!-- =================================================== End Lab =================================================== -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class='wrapper--footer js-wrapper'>
+            <nav aria-label='Sitemap' class='row row--sitemap' id='js-footer-nav' itemscope='itemscope' itemtype='http://schema.org/SiteNavigationElement' role='navigation'>
+                <h6 class='accessibility'>Sitemap</h6>
+                <div class='row__inner row--sitemap__inner'>
+                    <div class='col--footer--last'>
+                        <span class='title--footer title--list--footer'>
+                        Newsletter sign up
+                        </span>
+                        <p class='nav__item--footer'>
+                            <strong>
+                            Subscribe now
+                            </strong> and receive a
+                            <strong>
+                            20% discount
+                            </strong> on your next guidebook purchase
+                        </p>
+                        <form action='//www.lonelyplanet.com/newsletter/form-submission.php' class='newsletter-footer' method='post'>
+                            <label class='polyfill--placeholder newsletter-footer__placeholder'>Email</label>
+                            <input autocomplete='off' class='input--small--newsletter' id='newsletter-email' name='sailthru_email' placeholder='your@email.com' required='required' type='text'>
+                            <input name='Source' type='hidden' value='homepagefooter'>
+                            <input name='type' type='hidden' value='subscribe'>
+                            <div class='dropdown dropdown--country js-select-group-manager'>
+                                <label class='dropdown__value dropdown__value--country js-select-overlay icon--chevron-down--after' for='select-country'>
+                                    Select country
+                                </label>
+                                <select class='dropdown__select js-select' id='select-country' name='sailthru_Country'>
+                                    <option value='Australia'>
+                                        Australia
+                                    </option>
+                                    <option value='United Kingdom'>
+                                        United Kingdom
+                                    </option>
+                                    <option value='United States'>
+                                        United States
+                                    </option>
+                                    <option value='Afghanistan'>
+                                        Afghanistan
+                                    </option>
+                                    <option value='Aland Islands'>
+                                        Aland Islands
+                                    </option>
+                                    <option value='Albania'>
+                                        Albania
+                                    </option>
+                                    <option value='Algeria'>
+                                        Algeria
+                                    </option>
+                                    <option value='American Samoa'>
+                                        American Samoa
+                                    </option>
+                                    <option value='Andorra'>
+                                        Andorra
+                                    </option>
+                                    <option value='Angola'>
+                                        Angola
+                                    </option>
+                                    <option value='Anguilla'>
+                                        Anguilla
+                                    </option>
+                                    <option value='Antarctica'>
+                                        Antarctica
+                                    </option>
+                                    <option value='Antigua And Barbuda'>
+                                        Antigua And Barbuda
+                                    </option>
+                                    <option value='Argentina'>
+                                        Argentina
+                                    </option>
+                                    <option value='Armenia'>
+                                        Armenia
+                                    </option>
+                                    <option value='Aruba'>
+                                        Aruba
+                                    </option>
+                                    <option value='Austria'>
+                                        Austria
+                                    </option>
+                                    <option value='Azerbaijan'>
+                                        Azerbaijan
+                                    </option>
+                                    <option value='Bahamas'>
+                                        Bahamas
+                                    </option>
+                                    <option value='Bahrain'>
+                                        Bahrain
+                                    </option>
+                                    <option value='Bangladesh'>
+                                        Bangladesh
+                                    </option>
+                                    <option value='Barbados'>
+                                        Barbados
+                                    </option>
+                                    <option value='Belarus'>
+                                        Belarus
+                                    </option>
+                                    <option value='Belgium'>
+                                        Belgium
+                                    </option>
+                                    <option value='Belize'>
+                                        Belize
+                                    </option>
+                                    <option value='Benin'>
+                                        Benin
+                                    </option>
+                                    <option value='Bermuda'>
+                                        Bermuda
+                                    </option>
+                                    <option value='Bhutan'>
+                                        Bhutan
+                                    </option>
+                                    <option value='Bolivia'>
+                                        Bolivia
+                                    </option>
+                                    <option value='Bonaire'>
+                                        Bonaire
+                                    </option>
+                                    <option value='Bosnia and Herzegovina'>
+                                        Bosnia and Herzegovina
+                                    </option>
+                                    <option value='Botswana'>
+                                        Botswana
+                                    </option>
+                                    <option value='Bouvet Island'>
+                                        Bouvet Island
+                                    </option>
+                                    <option value='Brazil'>
+                                        Brazil
+                                    </option>
+                                    <option value='British Indian Ocean Territory'>
+                                        British Indian Ocean Territory
+                                    </option>
+                                    <option value='British Virgin Islands'>
+                                        British Virgin Islands
+                                    </option>
+                                    <option value='Brunei Darussalam'>
+                                        Brunei Darussalam
+                                    </option>
+                                    <option value='Bulgaria'>
+                                        Bulgaria
+                                    </option>
+                                    <option value='Burkina Faso'>
+                                        Burkina Faso
+                                    </option>
+                                    <option value='Burundi'>
+                                        Burundi
+                                    </option>
+                                    <option value='Cambodia'>
+                                        Cambodia
+                                    </option>
+                                    <option value='Cameroon'>
+                                        Cameroon
+                                    </option>
+                                    <option value='Canada'>
+                                        Canada
+                                    </option>
+                                    <option value='Cape Verde'>
+                                        Cape Verde
+                                    </option>
+                                    <option value='Cayman Islands'>
+                                        Cayman Islands
+                                    </option>
+                                    <option value='Central African Republic'>
+                                        Central African Republic
+                                    </option>
+                                    <option value='Chad'>
+                                        Chad
+                                    </option>
+                                    <option value='Channel Islands, The'>
+                                        Channel Islands, The
+                                    </option>
+                                    <option value='Chile'>
+                                        Chile
+                                    </option>
+                                    <option value='China'>
+                                        China
+                                    </option>
+                                    <option value='Christmas Island'>
+                                        Christmas Island
+                                    </option>
+                                    <option value='Cocos (Keeling) Islands'>
+                                        Cocos (Keeling) Islands
+                                    </option>
+                                    <option value='Colombia'>
+                                        Colombia
+                                    </option>
+                                    <option value='Comoros'>
+                                        Comoros
+                                    </option>
+                                    <option value='Congo'>
+                                        Congo
+                                    </option>
+                                    <option value='Congo, The Democratic Republic of the'>
+                                        Congo, The Democratic Republic of the
+                                    </option>
+                                    <option value='Cook Islands'>
+                                        Cook Islands
+                                    </option>
+                                    <option value='Costa Rica'>
+                                        Costa Rica
+                                    </option>
+                                    <option value="Cote D'Ivoire">
+                                        Cote D'Ivoire
+                                    </option>
+                                    <option value='Croatia'>
+                                        Croatia
+                                    </option>
+                                    <option value='Cuba'>
+                                        Cuba
+                                    </option>
+                                    <option value='Curacao'>
+                                        Curacao
+                                    </option>
+                                    <option value='Cyprus'>
+                                        Cyprus
+                                    </option>
+                                    <option value='Czech Republic'>
+                                        Czech Republic
+                                    </option>
+                                    <option value='Denmark'>
+                                        Denmark
+                                    </option>
+                                    <option value='Djibouti'>
+                                        Djibouti
+                                    </option>
+                                    <option value='Dominica'>
+                                        Dominica
+                                    </option>
+                                    <option value='Dominican Republic'>
+                                        Dominican Republic
+                                    </option>
+                                    <option value='East Timor'>
+                                        East Timor
+                                    </option>
+                                    <option value='Ecuador'>
+                                        Ecuador
+                                    </option>
+                                    <option value='Egypt'>
+                                        Egypt
+                                    </option>
+                                    <option value='El Salvador'>
+                                        El Salvador
+                                    </option>
+                                    <option value='England'>
+                                        England
+                                    </option>
+                                    <option value='Equatorial Guinea'>
+                                        Equatorial Guinea
+                                    </option>
+                                    <option value='Eritrea'>
+                                        Eritrea
+                                    </option>
+                                    <option value='Estonia'>
+                                        Estonia
+                                    </option>
+                                    <option value='Ethiopia'>
+                                        Ethiopia
+                                    </option>
+                                    <option value='Falkland Islands (Malvinas)'>
+                                        Falkland Islands (Malvinas)
+                                    </option>
+                                    <option value='Faroe Islands'>
+                                        Faroe Islands
+                                    </option>
+                                    <option value='Fiji'>
+                                        Fiji
+                                    </option>
+                                    <option value='Finland'>
+                                        Finland
+                                    </option>
+                                    <option value='France'>
+                                        France
+                                    </option>
+                                    <option value='French Guiana'>
+                                        French Guiana
+                                    </option>
+                                    <option value='French Polynesia'>
+                                        French Polynesia
+                                    </option>
+                                    <option value='French Southern Territories'>
+                                        French Southern Territories
+                                    </option>
+                                    <option value='Gabon'>
+                                        Gabon
+                                    </option>
+                                    <option value='Gambia'>
+                                        Gambia
+                                    </option>
+                                    <option value='Georgia'>
+                                        Georgia
+                                    </option>
+                                    <option value='Germany'>
+                                        Germany
+                                    </option>
+                                    <option value='Ghana'>
+                                        Ghana
+                                    </option>
+                                    <option value='Gibraltar'>
+                                        Gibraltar
+                                    </option>
+                                    <option value='Greece'>
+                                        Greece
+                                    </option>
+                                    <option value='Greenland'>
+                                        Greenland
+                                    </option>
+                                    <option value='Grenada'>
+                                        Grenada
+                                    </option>
+                                    <option value='Guadeloupe'>
+                                        Guadeloupe
+                                    </option>
+                                    <option value='Guam'>
+                                        Guam
+                                    </option>
+                                    <option value='Guatemala'>
+                                        Guatemala
+                                    </option>
+                                    <option value='Guernsey'>
+                                        Guernsey
+                                    </option>
+                                    <option value='Guinea'>
+                                        Guinea
+                                    </option>
+                                    <option value='Guinea-Bissau'>
+                                        Guinea-Bissau
+                                    </option>
+                                    <option value='Guyana'>
+                                        Guyana
+                                    </option>
+                                    <option value='Haiti'>
+                                        Haiti
+                                    </option>
+                                    <option value='Heard Island And Mcdonald Islands'>
+                                        Heard Island And Mcdonald Islands
+                                    </option>
+                                    <option value='Holy See (Vatican City State)'>
+                                        Holy See (Vatican City State)
+                                    </option>
+                                    <option value='Honduras'>
+                                        Honduras
+                                    </option>
+                                    <option value='Hong Kong'>
+                                        Hong Kong
+                                    </option>
+                                    <option value='Hungary'>
+                                        Hungary
+                                    </option>
+                                    <option value='Iceland'>
+                                        Iceland
+                                    </option>
+                                    <option value='India'>
+                                        India
+                                    </option>
+                                    <option value='Indonesia'>
+                                        Indonesia
+                                    </option>
+                                    <option value='Iran, Islamic Republic of'>
+                                        Iran, Islamic Republic of
+                                    </option>
+                                    <option value='Iraq'>
+                                        Iraq
+                                    </option>
+                                    <option value='Ireland'>
+                                        Ireland
+                                    </option>
+                                    <option value='Isle of Man'>
+                                        Isle of Man
+                                    </option>
+                                    <option value='Israel'>
+                                        Israel
+                                    </option>
+                                    <option value='Italy'>
+                                        Italy
+                                    </option>
+                                    <option value='Jamaica'>
+                                        Jamaica
+                                    </option>
+                                    <option value='Japan'>
+                                        Japan
+                                    </option>
+                                    <option value='Jersey'>
+                                        Jersey
+                                    </option>
+                                    <option value='Jordan'>
+                                        Jordan
+                                    </option>
+                                    <option value='Kazakhstan'>
+                                        Kazakhstan
+                                    </option>
+                                    <option value='Kenya'>
+                                        Kenya
+                                    </option>
+                                    <option value='Kiribati'>
+                                        Kiribati
+                                    </option>
+                                    <option value="Korea, Democratic People's Republic of">
+                                        Korea, Democratic People's Republic of
+                                    </option>
+                                    <option value='Korea, Republic of'>
+                                        Korea, Republic of
+                                    </option>
+                                    <option value='Kuwait'>
+                                        Kuwait
+                                    </option>
+                                    <option value='Kyrgyzstan'>
+                                        Kyrgyzstan
+                                    </option>
+                                    <option value="Lao People's Democratic Republic">
+                                        Lao People's Democratic Republic
+                                    </option>
+                                    <option value='Latvia'>
+                                        Latvia
+                                    </option>
+                                    <option value='Lebanon'>
+                                        Lebanon
+                                    </option>
+                                    <option value='Lesotho'>
+                                        Lesotho
+                                    </option>
+                                    <option value='Liberia'>
+                                        Liberia
+                                    </option>
+                                    <option value='Libyan Arab Jamahiriya'>
+                                        Libyan Arab Jamahiriya
+                                    </option>
+                                    <option value='Liechtenstein'>
+                                        Liechtenstein
+                                    </option>
+                                    <option value='Lithuania'>
+                                        Lithuania
+                                    </option>
+                                    <option value='Luxembourg'>
+                                        Luxembourg
+                                    </option>
+                                    <option value='Macao'>
+                                        Macao
+                                    </option>
+                                    <option value='Macedonia, The Former Yugoslav Republic of'>
+                                        Macedonia, The Former Yugoslav Republic of
+                                    </option>
+                                    <option value='Madagascar'>
+                                        Madagascar
+                                    </option>
+                                    <option value='Malawi'>
+                                        Malawi
+                                    </option>
+                                    <option value='Malaysia'>
+                                        Malaysia
+                                    </option>
+                                    <option value='Maldives'>
+                                        Maldives
+                                    </option>
+                                    <option value='Mali'>
+                                        Mali
+                                    </option>
+                                    <option value='Malta'>
+                                        Malta
+                                    </option>
+                                    <option value='Marshall Islands'>
+                                        Marshall Islands
+                                    </option>
+                                    <option value='Martinique'>
+                                        Martinique
+                                    </option>
+                                    <option value='Mauritania'>
+                                        Mauritania
+                                    </option>
+                                    <option value='Mauritius'>
+                                        Mauritius
+                                    </option>
+                                    <option value='Mayotte'>
+                                        Mayotte
+                                    </option>
+                                    <option value='Mexico'>
+                                        Mexico
+                                    </option>
+                                    <option value='Micronesia, Federated States of'>
+                                        Micronesia, Federated States of
+                                    </option>
+                                    <option value='Moldova, Republic of'>
+                                        Moldova, Republic of
+                                    </option>
+                                    <option value='Monaco'>
+                                        Monaco
+                                    </option>
+                                    <option value='Mongolia'>
+                                        Mongolia
+                                    </option>
+                                    <option value='Montenegro'>
+                                        Montenegro
+                                    </option>
+                                    <option value='Montserrat'>
+                                        Montserrat
+                                    </option>
+                                    <option value='Morocco'>
+                                        Morocco
+                                    </option>
+                                    <option value='Mozambique'>
+                                        Mozambique
+                                    </option>
+                                    <option value='Myanmar'>
+                                        Myanmar
+                                    </option>
+                                    <option value='Namibia'>
+                                        Namibia
+                                    </option>
+                                    <option value='Nauru'>
+                                        Nauru
+                                    </option>
+                                    <option value='Nepal'>
+                                        Nepal
+                                    </option>
+                                    <option value='Netherlands Antilles'>
+                                        Netherlands Antilles
+                                    </option>
+                                    <option value='Netherlands'>
+                                        Netherlands
+                                    </option>
+                                    <option value='New Caledonia'>
+                                        New Caledonia
+                                    </option>
+                                    <option value='New Guinea'>
+                                        New Guinea
+                                    </option>
+                                    <option value='New Zealand'>
+                                        New Zealand
+                                    </option>
+                                    <option value='Nicaragua'>
+                                        Nicaragua
+                                    </option>
+                                    <option value='Niger'>
+                                        Niger
+                                    </option>
+                                    <option value='Nigeria'>
+                                        Nigeria
+                                    </option>
+                                    <option value='Niue'>
+                                        Niue
+                                    </option>
+                                    <option value='Norfolk Island'>
+                                        Norfolk Island
+                                    </option>
+                                    <option value='North Korea'>
+                                        North Korea
+                                    </option>
+                                    <option value='Northern Ireland'>
+                                        Northern Ireland
+                                    </option>
+                                    <option value='Northern Mariana Islands'>
+                                        Northern Mariana Islands
+                                    </option>
+                                    <option value='Norway'>
+                                        Norway
+                                    </option>
+                                    <option value='Oman'>
+                                        Oman
+                                    </option>
+                                    <option value='Pakistan'>
+                                        Pakistan
+                                    </option>
+                                    <option value='Palau'>
+                                        Palau
+                                    </option>
+                                    <option value='Palestinian Territory, Occupied'>
+                                        Palestinian Territory, Occupied
+                                    </option>
+                                    <option value='Panama'>
+                                        Panama
+                                    </option>
+                                    <option value='Papua New Guinea'>
+                                        Papua New Guinea
+                                    </option>
+                                    <option value='Paraguay'>
+                                        Paraguay
+                                    </option>
+                                    <option value='Peru'>
+                                        Peru
+                                    </option>
+                                    <option value='Philippines'>
+                                        Philippines
+                                    </option>
+                                    <option value='Pitcairn'>
+                                        Pitcairn
+                                    </option>
+                                    <option value='Poland'>
+                                        Poland
+                                    </option>
+                                    <option value='Portugal'>
+                                        Portugal
+                                    </option>
+                                    <option value='Puerto Rico'>
+                                        Puerto Rico
+                                    </option>
+                                    <option value='Qatar'>
+                                        Qatar
+                                    </option>
+                                    <option value='Reunion'>
+                                        Reunion
+                                    </option>
+                                    <option value='Romania'>
+                                        Romania
+                                    </option>
+                                    <option value='Russian Federation'>
+                                        Russian Federation
+                                    </option>
+                                    <option value='Rwanda'>
+                                        Rwanda
+                                    </option>
+                                    <option value='Saba'>
+                                        Saba
+                                    </option>
+                                    <option value='Saint Eustatius'>
+                                        Saint Eustatius
+                                    </option>
+                                    <option value='Saint Barthelemy'>
+                                        Saint Barthelemy
+                                    </option>
+                                    <option value='Saint Helena'>
+                                        Saint Helena
+                                    </option>
+                                    <option value='Saint Kitts and Nevis'>
+                                        Saint Kitts and Nevis
+                                    </option>
+                                    <option value='Saint Lucia'>
+                                        Saint Lucia
+                                    </option>
+                                    <option value='Saint Martin (France)'>
+                                        Saint Martin (France)
+                                    </option>
+                                    <option value='Saint Pierre and Miquelon'>
+                                        Saint Pierre and Miquelon
+                                    </option>
+                                    <option value='Saint Vincent and the Grenadines'>
+                                        Saint Vincent and the Grenadines
+                                    </option>
+                                    <option value='Samoa'>
+                                        Samoa
+                                    </option>
+                                    <option value='San Marino'>
+                                        San Marino
+                                    </option>
+                                    <option value='Sao Tome and Principe'>
+                                        Sao Tome and Principe
+                                    </option>
+                                    <option value='Saudi Arabia'>
+                                        Saudi Arabia
+                                    </option>
+                                    <option value='Scotland'>
+                                        Scotland
+                                    </option>
+                                    <option value='Senegal'>
+                                        Senegal
+                                    </option>
+                                    <option value='Serbia'>
+                                        Serbia
+                                    </option>
+                                    <option value='Seychelles'>
+                                        Seychelles
+                                    </option>
+                                    <option value='Sierra Leone'>
+                                        Sierra Leone
+                                    </option>
+                                    <option value='Singapore'>
+                                        Singapore
+                                    </option>
+                                    <option value='Slovakia'>
+                                        Slovakia
+                                    </option>
+                                    <option value='Slovenia'>
+                                        Slovenia
+                                    </option>
+                                    <option value='Solomon Islands'>
+                                        Solomon Islands
+                                    </option>
+                                    <option value='Somalia'>
+                                        Somalia
+                                    </option>
+                                    <option value='South Africa'>
+                                        South Africa
+                                    </option>
+                                    <option value='South Korea'>
+                                        South Korea
+                                    </option>
+                                    <option value='South Georgia and the South Sandwich Islands'>
+                                        South Georgia and the South Sandwich Islands
+                                    </option>
+                                    <option value='Spain'>
+                                        Spain
+                                    </option>
+                                    <option value='Sri Lanka'>
+                                        Sri Lanka
+                                    </option>
+                                    <option value='Sudan'>
+                                        Sudan
+                                    </option>
+                                    <option value='Suriname'>
+                                        Suriname
+                                    </option>
+                                    <option value='Svalbard and Jan Mayen'>
+                                        Svalbard and Jan Mayen
+                                    </option>
+                                    <option value='Swaziland'>
+                                        Swaziland
+                                    </option>
+                                    <option value='Sweden'>
+                                        Sweden
+                                    </option>
+                                    <option value='Switzerland'>
+                                        Switzerland
+                                    </option>
+                                    <option value='Syrian Arab Republic'>
+                                        Syrian Arab Republic
+                                    </option>
+                                    <option value='Taiwan'>
+                                        Taiwan
+                                    </option>
+                                    <option value='Tajikistan'>
+                                        Tajikistan
+                                    </option>
+                                    <option value='Tanzania, United Republic of'>
+                                        Tanzania, United Republic of
+                                    </option>
+                                    <option value='Thailand'>
+                                        Thailand
+                                    </option>
+                                    <option value='Timor-Leste'>
+                                        Timor-Leste
+                                    </option>
+                                    <option value='Togo'>
+                                        Togo
+                                    </option>
+                                    <option value='Tokelau'>
+                                        Tokelau
+                                    </option>
+                                    <option value='Tonga'>
+                                        Tonga
+                                    </option>
+                                    <option value='Trinidad and Tobago'>
+                                        Trinidad and Tobago
+                                    </option>
+                                    <option value='Tunisia'>
+                                        Tunisia
+                                    </option>
+                                    <option value='Turkey'>
+                                        Turkey
+                                    </option>
+                                    <option value='Turkmenistan'>
+                                        Turkmenistan
+                                    </option>
+                                    <option value='Turks and Caicos Islands'>
+                                        Turks and Caicos Islands
+                                    </option>
+                                    <option value='Tuvalu'>
+                                        Tuvalu
+                                    </option>
+                                    <option value='Uganda'>
+                                        Uganda
+                                    </option>
+                                    <option value='Ukraine'>
+                                        Ukraine
+                                    </option>
+                                    <option value='United Arab Emirates'>
+                                        United Arab Emirates
+                                    </option>
+                                    <option value='United States Minor Outlying Islands'>
+                                        United States Minor Outlying Islands
+                                    </option>
+                                    <option value='Uruguay'>
+                                        Uruguay
+                                    </option>
+                                    <option value='Uzbekistan'>
+                                        Uzbekistan
+                                    </option>
+                                    <option value='Vanuatu'>
+                                        Vanuatu
+                                    </option>
+                                    <option value='Venezuela'>
+                                        Venezuela
+                                    </option>
+                                    <option value='Viet Nam'>
+                                        Viet Nam
+                                    </option>
+                                    <option value='Virgin Islands, British'>
+                                        Virgin Islands, British
+                                    </option>
+                                    <option value='Virgin Islands, U.S.'>
+                                        Virgin Islands, U.S.
+                                    </option>
+                                    <option value='Wallis and Futuna'>
+                                        Wallis and Futuna
+                                    </option>
+                                    <option value='Western Sahara'>
+                                        Western Sahara
+                                    </option>
+                                    <option value='Yemen'>
+                                        Yemen
+                                    </option>
+                                    <option value='Zaire'>
+                                        Zaire
+                                    </option>
+                                    <option value='Zambia'>
+                                        Zambia
+                                    </option>
+                                    <option value='Zimbabwe'>
+                                        Zimbabwe
+                                    </option>
+                                </select>
+                            </div>
+                            <input class='btn btn--green btn--large newsletter-footer__btn' data-lpa-action='newsletter' data-lpa-category='account' title='Subscribe Newsletter' type='submit' value='Sign up'>
+                        </form>
+                    </div>
+                    <div class='col--footer'>
+                        <input class='accordion__input' id='ac-destinations' type='checkbox'>
+                        <div class='nav--stacked accordion__target accordion__target--mid'>
+                            <label class='accordion__title accordion__title--footer icon--chevron-down--after' for='ac-destinations'></label>
+                            <a class='js-nav-item title--footer title--list--footer' href='http://www.lonelyplanet.com/destinations' itemprop='url'>
+                                <span itemprop='name'>
+Destinations
+</span>
+                            </a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/africa' itemprop='url'><span itemprop='name'>
+Africa</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/antarctica' itemprop='url'><span itemprop='name'>
+Antarctica</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/asia' itemprop='url'><span itemprop='name'>
+Asia</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/caribbean' itemprop='url'><span itemprop='name'>
+Caribbean Islands</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/central-america' itemprop='url'><span itemprop='name'>
+Central America</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/europe' itemprop='url'><span itemprop='name'>
+Europe</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/middle-east' itemprop='url'><span itemprop='name'>
+Middle East</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/north-america' itemprop='url'><span itemprop='name'>
+North America</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/pacific' itemprop='url'><span itemprop='name'>
+Pacific</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/south-america' itemprop='url'><span itemprop='name'>
+South America</span></a>
+                        </div>
+                    </div>
+                    <div class='col--footer'>
+                        <input class='accordion__input' id='ac-shop' type='checkbox'>
+                        <div class='nav--stacked accordion__target accordion__target--mid'>
+                            <label class='accordion__title accordion__title--footer icon--chevron-down--after' for='ac-shop'></label>
+                            <a class='js-nav-item title--footer title--list--footer' href='http://www.lonelyplanet.com/shop' itemprop='url'>
+                                <span itemprop='name'>
+Shop
+</span>
+                            </a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/shop/destination-guides' itemprop='url'><span itemprop='name'>
+Destination guides</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/shop/ebooks' itemprop='url'><span itemprop='name'>
+eBooks</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/shop/pictorials-and-gifts' itemprop='url'><span itemprop='name'>
+Pictorial &amp; gifts</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/shop/phrasebooks' itemprop='url'><span itemprop='name'>
+Phrasebooks</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/shop/activity-guides' itemprop='url'><span itemprop='name'>
+Activity guides</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/shop/special-offers' itemprop='url'><span itemprop='name'>
+Special offers</span></a>
+                        </div>
+                    </div>
+                    <div class='col--footer'>
+                        <input class='accordion__input' id='ac-thorntree' type='checkbox'>
+                        <div class='nav--stacked accordion__target accordion__target--mid'>
+                            <label class='accordion__title accordion__title--footer icon--chevron-down--after' for='ac-thorntree'></label>
+                            <a class='js-nav-item title--footer title--list--footer' href='http://www.lonelyplanet.com/thorntree' itemprop='url'>
+                                <span itemprop='name'>
+Thorn Tree Forum
+</span>
+                            </a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/thorntree/categories/country-forums' itemprop='url'><span itemprop='name'>
+Country forums</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/thorntree/categories/talk-to-lonely-planet' itemprop='url'><span itemprop='name'>
+Talk to Lonely Planet</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/thorntree/categories/interest-forums' itemprop='url'><span itemprop='name'>
+Interest forums</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/thorntree/categories/sell-swap-meet-up' itemprop='url'><span itemprop='name'>
+Travel buddies &amp; for sale</span></a>
+                        </div>
+                    </div>
+                    <div class='col--footer'>
+                        <input class='accordion__input' id='ac-interests' type='checkbox'>
+                        <div class='nav--stacked accordion__target accordion__target--mid'>
+                            <label class='accordion__title accordion__title--footer icon--chevron-down--after' for='ac-interests'></label>
+                            <a class='js-nav-item title--footer title--list--footer' href='http://www.lonelyplanet.com/interests' itemprop='url'>
+                                <span itemprop='name'>
+Interests
+</span>
+                            </a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/adventure-travel' itemprop='url'><span itemprop='name'>
+Adventure travel</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/beaches' itemprop='url'><span itemprop='name'>
+Beaches</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/budget-travel' itemprop='url'><span itemprop='name'>
+Budget travel</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/family-travel' itemprop='url'><span itemprop='name'>
+Family travel</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/festivals-and-events' itemprop='url'><span itemprop='name'>
+Festivals and events</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/food-and-drink' itemprop='url'><span itemprop='name'>
+Food and drink</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/honeymoons-and-romance' itemprop='url'><span itemprop='name'>
+Honeymoons and romance</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/luxury-travel' itemprop='url'><span itemprop='name'>
+Luxury travel</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/round-the-world-travel' itemprop='url'><span itemprop='name'>
+Round the world travel</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/wildlife-and-nature' itemprop='url'><span itemprop='name'>
+Wildlife and nature</span></a>
+                        </div>
+                    </div>
+                    <div class='col--footer'>
+                        <input class='accordion__input' id='ac-bookings' type='checkbox'>
+                        <div class='nav--stacked accordion__target accordion__target--mid'>
+                            <label class='accordion__title accordion__title--footer icon--chevron-down--after' for='ac-bookings'></label>
+                            <a class='js-nav-item title--footer title--list--footer' href='http://www.lonelyplanet.com/bookings' itemprop='url'>
+                                <span itemprop='name'>
+Travel Booking
+</span>
+                            </a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/hotels' itemprop='url'><span itemprop='name'>
+Hotels</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/flights' itemprop='url'><span itemprop='name'>
+Flights</span></a>
+                            <a class='js-nav-item nav__item nav__item--sitemap nav__item--footer' href='http://www.lonelyplanet.com/travel-insurance' itemprop='url'><span itemprop='name'>
+Insurance</span></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class='row row--footer--about' role='contentinfo'>
+                <div class='row__inner row__inner--full-width'>
+                    <div class='wv--split--left nav--inline'>
+                        <a class='wv--inline-block nav__item row--footer--about__logo media--lp-logo icon--lp-logo' href='http://www.lonelyplanet.com'></a>
+                        <nav aria-label='About Lonely Planet' class='nav__item wv--nav--inline' itemscope='itemscope' itemtype='http://schema.org/SiteNavigationElement' role='navigation'>
+                            <h6 class='accessibility'>About Lonely Planet</h6>
+                            <a class='nav__item nav__item--about' href='http://www.lonelyplanet.com/about/' itemprop='url'><span itemprop='name'>
+About us</span></a>
+                            <a class='nav__item nav__item--about' href='http://www.lonelyplanet.com/jobs/' itemprop='url'><span itemprop='name'>
+Work for us</span></a>
+                            <a class='nav__item nav__item--about' href='http://www.lonelyplanet.com/contact/' itemprop='url'><span itemprop='name'>
+Contact us</span></a>
+                            <a class='nav__item nav__item--about' href='http://www.lonelyplanet.com/press-trade-advertising/' itemprop='url'><span itemprop='name'>
+Press, trade &amp; advertising</span></a>
+                            <a class='nav__item nav__item--about' href='http://www.lonelyplanet.com/legal/website-terms/' itemprop='url'><span itemprop='name'>
+Terms &amp; conditions</span></a>
+                            <a class='nav__item nav__item--about' href='http://www.lonelyplanet.com/legal/privacy-policy/' itemprop='url'><span itemprop='name'>
+Privacy policy</span></a>
+                        </nav>
+                    </div>
+                    <div class='wv--split--right'>
+                        <div class='nav--inline nav--social split--right__inner'>
+                            <a class='wv--hidden row--footer--social__logo media--lp-logo icon--lp-logo' href='http://www.lonelyplanet.com'></a>
+                            <nav aria-label='Social media links' class='nav--social__inner nav__item' itemscope='itemscope' itemtype='http://schema.org/SiteNavigationElement' role='navigation'>
+                                <h6 class='accessibility'>Social media links</h6>
+                                <div class='nav--inline'>
+                                    <a class='icon--twitter nav__item nav__item--social' href='https://twitter.com/lonelyplanet' itemprop='url'>
+                                        <span itemprop='name'>
+Twitter
+</span>
+                                    </a>
+                                    <a class='icon--facebook nav__item nav__item--social' href='https://www.facebook.com/lonelyplanet' itemprop='url'>
+                                        <span itemprop='name'>
+Facebook
+</span>
+                                    </a>
+                                    <a class='icon--google-plus nav__item nav__item--social' href='https://plus.google.com/+LonelyPlanet/' itemprop='url'>
+                                        <span itemprop='name'>
+Google-plus
+</span>
+                                    </a>
+                                    <a class='icon--flickr nav__item nav__item--social' href='http://www.flickr.com/groups/lonelyplanetpublications/' itemprop='url'>
+                                        <span itemprop='name'>
+Flickr
+</span>
+                                    </a>
+                                    <a class='icon--youtube nav__item nav__item--social' href='http://www.youtube.com/user/LonelyPlanet' itemprop='url'>
+                                        <span itemprop='name'>
+Youtube
+</span>
+                                    </a>
+                                    <a class='icon--pinterest nav__item nav__item--social' href='http://pinterest.com/lonelyplanet/' itemprop='url'>
+                                        <span itemprop='name'>
+Pinterest
+</span>
+                                    </a>
+                                    <a class='icon--instagram nav__item nav__item--social' href='http://instagram.com/lonelyplanet' itemprop='url'>
+                                        <span itemprop='name'>
+Instagram
+</span>
+                                    </a>
+                                    <a class='icon--vine nav__item nav__item--social' href='https://vine.co/lonelyplanet' itemprop='url'>
+                                        <span itemprop='name'>
+Vine
+</span>
+                                    </a>
+                                    <a class='icon--article nav__item nav__item--social' href='/blog' itemprop='url'>
+                                        <span itemprop='name'>
+Article
+</span>
+                                    </a>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='row row--smallprint'>
+                <div class='row__inner row__inner--footer row--smallprint__inner'>
+                    <div class='wv--split--left text--legal copy--disclaimer'>
+                        <p>
+                            &copy; 2015 Lonely Planet. All rights reserved. No part of this site may be reproduced without our written permission.
+                        </p>
+                    </div>
+                    <div class='wv--split--right form--international'>
+                        <div class='split--right__inner nav--inline form--language media'>
+                            <label class='nav__item form--language__label title--footer media__img'>International</label>
+                            <div class='media__body'>
+                                <form action='//www.lonelyplanet.com/international'>
+                                    <div class='dropdown js-select-group-manager'>
+                                        <div aria-hidden class='dropdown__value js-select-overlay icon--chevron-down--after'>
+                                            English
+                                        </div>
+                                        <select class='dropdown__select js-select' data-form-submit='true' id='languageSelect' name='language'>
+                                            <option value='en'>English</option>
+                                            <option value='in'>English (India)</option>
+                                            <option value='de'>Deutsch</option>
+                                            <option value='fr'>Fran&#231;ais</option>
+                                            <option value='es'>Espa&#241;ol</option>
+                                            <option value='it'>Italiano</option>
+                                            <option value='ru'>&#x420;&#x443;&#x441;&#x441;&#x43A;&#x438;&#x439;</option>
+                                            <option value='br'>Portugu&ecirc;s</option>
+                                        </select>
+
+                                    </div>
+
+                                    <noscript>
+                                        <input class='btn btn--linkblue btn--medium' type='submit' value='Go'>
+                                    </noscript>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+
+  <head>
+    <link data-require="bootstrap-css@3.1.1" data-semver="3.1.1" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <link data-require="kendoUI@2014.2.716" data-semver="2014.2.716" rel="stylesheet" href="http://cdn.kendostatic.com/2014.2.716/styles/kendo.common.min.css" />
+    <link data-require="kendoUI@2014.2.716" data-semver="2014.2.716" rel="stylesheet" href="http://cdn.kendostatic.com/2014.2.716/styles/kendo.default.min.css" />
+    <script data-require="jquery@*" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script data-require="kendoUI@2014.2.716" data-semver="2014.2.716" src="http://cdn.kendostatic.com/2014.2.716/js/kendo.all.min.js"></script>
+    <script data-require="angular.js@1.3.0-beta.19" data-semver="1.3.0-beta.19" src="https://code.angularjs.org/1.3.0-beta.19/angular.js"></script>
+    <script data-require="bootstrap@3.1.1" data-semver="3.1.1" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script data-require="angular-mocks@1.2.16" data-semver="1.2.16" src="https://code.angularjs.org/1.2.16/angular-mocks.js"></script>
+    <script data-require="angular-resource@1.2.14" data-semver="1.2.14" src="http://code.angularjs.org/1.2.14/angular-resource.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="data.js"></script>
+    <script src="controllers.js"></script>
+    <script src="directives.js"></script>
+    <script src="services.js"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <body ng-app="introToAngularApp">
+    <div ng-controller="ReservationCtrl as vm">
+      <ul>
+        <li ng-repeat="item in vm.list">
+        {{item.name}} for {{item.qty}} at {{item.time | date: 'medium'}}
+      </li>
+      </ul>
+      <form name="reservations" class="form" ng-class="{ 'submitted': vm.submitted }" novalidate="" ng-submit="vm.create()">
+        <div class="form-group">
+          <input name="name" type="text" ng-model="vm.reservation.name" class="form-control" placeholder="Name" required="" />
+        </div>
+        <div class="form-group">
+          <input name="qty" type="number" ng-model="vm.reservation.qty" class="form-control" placeholder="Quantity" required="" />
+        </div>
+        <div class="form-group">
+          <input name="time" type="text" a2-date-picker ng-model="vm.reservation.time" placeholder="Date" required="" />
+        </div>
+        <div class="form-group">
+          <button type="submit" ng-disabled="reservations.$invalid" class="btn btn-primary">Create</button>
+          <button ng-click="vm.clear()" type="reset" class="btn btn-danger">Reset</button>
+        </div>
+      </form>
+    </div>
+  </body>
+
+</html> -->
