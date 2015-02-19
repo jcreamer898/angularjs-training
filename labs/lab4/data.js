@@ -1,5 +1,7 @@
-angular.module('a2MockData', ['ngMockE2E'])
+angular.module("a2MockData", ["ngMockE2E"])
   .run(function($httpBackend) {
+    "use strict";
+
     var reservations = [{
       id: 1,
       name: "Jonathan Creamer",
@@ -22,10 +24,10 @@ angular.module('a2MockData', ['ngMockE2E'])
       time: "2014-09-17T01:00:00.000Z"
     }];
     
-    $httpBackend.whenGET('/api/reservations')
+    $httpBackend.whenGET("/api/reservations")
       .respond(reservations);
       
-    $httpBackend.whenPOST('/api/reservations').respond(function(method, url, data) {
+    $httpBackend.whenPOST("/api/reservations").respond(function(method, url, data) {
       var reservation = angular.fromJson(data);
       reservations.push(reservation);
       return [200, reservation, {}];

@@ -1,11 +1,10 @@
-/* Add app module here */
-angular.module('introToAngularApp.controllers', [])
-  .controller('ReservationCtrl', function(Reservations, $scope) {
+(function() {
+  "use strict";
+
+  function ReservationCtrl (Reservations, $scope) {
     var self = this;
     
     this.list = Reservations.query();
-    
-    
     
     this.create = function(name, qty, time) {
       if (!$scope.reservations.$invalid) {
@@ -18,10 +17,17 @@ angular.module('introToAngularApp.controllers', [])
         res.$save(function() {
           self.list = Reservations.query();
         }); 
+
+        this.clear();
+        $scope.reservations.$setPristine();
       }
     };
     
     this.clear = function() {
       this.reservation = {};
     };
-  });
+  }
+
+  angular.module("introToAngularApp.controllers", [])
+    .controller("ReservationCtrl", ReservationCtrl);
+}());
