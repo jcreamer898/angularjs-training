@@ -1,3 +1,1 @@
-angular.module('introToAngularApp', [
-    'introToAngularApp.controllers'
-  ]);
+// Create your `introToAngularApp` module here and require in the `introToAngularApp.controllers`

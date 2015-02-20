@@ -1,4 +1,4 @@
-angular.module('introToAngularApp', [
-    'introToAngularApp.directives',
-    'introToAngularApp.controllers'
+angular.module("introToAngularApp", [
+    "introToAngularApp.controllers",
+    "introToAngularApp.directives"
   ]);

@@ -861,53 +861,15 @@ body .markdown-body
   margin: 0.3em 0 0.25em -1.6em;
   vertical-align: middle;
 }</style><title>instructions</title></head><body><article class="markdown-body"><h1>
-<a id="user-content-lab-4" class="anchor" href="#lab-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>LAB 4</h1>
+<a id="user-content-lab-1" class="anchor" href="#lab-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>LAB 1</h1>
 
 <ol>
-<li>Create a service in <code>services.js</code> called <code>Reservation</code> that uses <code>$resource</code> pointing to <code>/api/reservations/:id</code>, and add it to a new module called <code>introToAngularApp.services</code>
-
-<ul>
-<li>Use the <code>factory</code> method</li>
-<li>Import the services module in <code>app.js</code>
+<li>Create inputs for <code>name</code>, <code>email</code> and assign to the root scope on a <code>user</code> model like <code>user.name</code>, and <code>user.email</code>
 </li>
-</ul>
+<li>Create <code>select</code> containg options for types of emails "Work, and Home" and assign to root scope on <code>user.emailType</code>
 </li>
-<li>Add a custom <code>PUT</code> method to the <code>Reservation</code> definition</li>
-<li>Create a controller called <code>ReservationCtrl</code> that asks for the <code>Reservation</code> service as a dependency</li>
-<li>Retrieve the list of reservations from the service and display the reservations on the page with <code>ng-repeat</code>
-
-<ul>
-<li>The list data structure looks like <code>[{ id: 1, name: "Jonathan", qty: 4, time: "8/31/2014 7:30pm" }]</code>
+<li>Create a <code>textarea</code> and assign to root scope with <code>user.comment</code>
 </li>
-<li>Bonus points for using filters to display date in a different format</li>
-<li>Should look like "Jonathan Creamer for 3 at Aug 26, 2014 9:30:00 AM"</li>
-</ul>
-</li>
-</ol>
-
-<h3>
-<a id="user-content-bonus" class="anchor" href="#bonus" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bonus</h3>
-
-<ol>
-<li>Create a new method on the controller for adding a reservation called <code>create</code>
-</li>
-<li>Create a form with <code>name</code>, <code>qty</code>, <code>time</code>, fields and a <code>submit</code> button
-
-<ul>
-<li>Re-use the <code>a2DatePicker</code> from before, but change the kendo widget to <code>kendoDateTimePicker</code>
-</li>
-<li>Bind the form inputs to a <code>reservation</code> model on the controller. i.e. ng-model="reservation.name", (if you use controllerAs, don't forget your controller alias!)</li>
-</ul>
-</li>
-<li>Use form validation for <code>required</code> on those fields</li>
-<li>Use the <code>create</code> method to create a new <code>Reservation</code> when you submit the form
-
-<ul>
-<li>
-<code>$save</code> from <code>$resource</code> will be helpful here</li>
-<li>Be sure to get the reservations again after you save the new one</li>
-</ul>
-</li>
-<li>Add a <code>clear</code> button that resets the reservation on the scope</li>
+<li>Display all of the model data on the page to see 2 way binding is working</li>
 </ol>
 </article></body></html>

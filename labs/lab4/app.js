@@ -1,7 +1,6 @@
-angular.module('introToAngularApp', [
-    'introToAngularApp.controllers',
-    'introToAngularApp.directives',
-    'introToAngularApp.services',
-    'ngResource',
-    'a2MockData'
+angular.module("introToAngularApp", [
+    "ngResource",
+    "a2MockData",
+    "introToAngularApp.controllers",
+    "introToAngularApp.directives",
   ]);
