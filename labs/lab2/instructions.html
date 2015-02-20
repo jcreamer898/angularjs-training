@@ -860,8 +860,8 @@ body .markdown-body
   float: left;
   margin: 0.3em 0 0.25em -1.6em;
   vertical-align: middle;
-}</style><title>instructions</title></head><body><article class="markdown-body"><h3>
-<a id="user-content-lab-2" class="anchor" href="#lab-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>LAB 2</h3>
+}</style><title>instructions</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-lab-2" class="anchor" href="#lab-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>LAB 2</h1>
 
 <ol>
 <li>Reuse the form from the last lab, and add 2 buttons, <code>send</code> and <code>clear</code>
@@ -876,7 +876,14 @@ body .markdown-body
 
 <p>"A message has been sent to NAME at EMAIL that says CONTENT"</p>
 </li>
-<li><p>Disable the button (<code>ng-disabled</code>) unless there's an <code>email</code> and <code>message</code> defined in the scope    </p></li>
+</ol>
+
+<h3>
+<a id="user-content-bonus" class="anchor" href="#bonus" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bonus</h3>
+
+<ol>
+<li>Disable the button (<code>ng-disabled</code>) unless there's an <code>email</code> and <code>message</code> defined in the scope<br>
+</li>
 <li>Create a <code>clear</code> method in the controller that attaches to the <code>clear</code> button clears the content of all the inputs, selects, and textareas on the page.</li>
 <li>Show a success message on the page after clicking <code>send</code> by utilizing <code>ng-show</code> and a variable on the scope to trigger it</li>
 <li>Hide the message after 5 seconds by importing <code>$timeout</code> with DI</li>
