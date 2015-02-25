@@ -1,4 +1,4 @@
-* [Go Back](/)
+* [Go Back](../index.html)
 
 # LAB 3
 

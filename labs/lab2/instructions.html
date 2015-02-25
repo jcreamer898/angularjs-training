@@ -861,35 +861,6 @@ body .markdown-body
   margin: 0.3em 0 0.25em -1.6em;
   vertical-align: middle;
 }</style><title>instructions</title></head><body><article class="markdown-body"><ul>
-<li><a href="/">Go Back</a></li>
+<li><a href="/Users/jonathancreamer/Projects/jcreamer898/angularjs-training/labs/index.html">Go Back</a></li>
 </ul>
-
-<h1>
-<a id="user-content-lab-2" class="anchor" href="#lab-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>LAB 2</h1>
-
-<ol>
-<li>Reuse the form from the last lab, and add 2 buttons, <code>send</code> and <code>clear</code>
-</li>
-<li>Create a module in <code>app.js</code> called <code>introToAngularApp</code>
-</li>
-<li>Create a new controllers module in controllers.js called <code>introToAngularApp.controllers</code> and add it to the dependencies array in the <code>introToAngularApp</code> module</li>
-<li>Create a new controller called <code>ContactCtrl</code> and add it to a new div on the page with <code>ng-controller</code>
-</li>
-<li>
-<p>Create a <code>send</code> method in the controller that binds to a <code>click</code> event on the <code>send</code> button and <code>console.log</code>'s a message that says...</p>
-
-<p>"A message has been sent to NAME at EMAIL that says CONTENT"</p>
-</li>
-</ol>
-
-<h3>
-<a id="user-content-bonus" class="anchor" href="#bonus" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bonus</h3>
-
-<ol>
-<li>Disable the button (<code>ng-disabled</code>) unless there's an <code>email</code> and <code>message</code> defined in the scope<br>
-</li>
-<li>Create a <code>clear</code> method in the controller that attaches to the <code>clear</code> button clears the content of all the inputs, selects, and textareas on the page.</li>
-<li>Show a success message on the page after clicking <code>send</code> by utilizing <code>ng-show</code> and a variable on the scope to trigger it</li>
-<li>Hide the message after 5 seconds by importing <code>$timeout</code> with DI</li>
-</ol>
 </article></body></html>
