@@ -1,5 +1,3 @@
-* [Go Back](../index.html)
-
 # LAB 3
 
 1. Create a module for directives called `introToAngularApp.directives` and import it in the app module
