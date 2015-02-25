@@ -1,3 +1,5 @@
+* [Go Back](/)
+
 # LAB 4
     
 1. Create a service in `services.js` called `Reservation` that uses `$resource` pointing to `/api/reservations/:id`, and add it to a new module called `introToAngularApp.services`

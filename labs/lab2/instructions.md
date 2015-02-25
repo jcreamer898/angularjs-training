@@ -1,3 +1,5 @@
+* [Go Back](/)
+
 # LAB 2
 
 1. Reuse the form from the last lab, and add 2 buttons, `send` and `clear`

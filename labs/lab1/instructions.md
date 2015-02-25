@@ -1,3 +1,5 @@
+* [Go Back](/)
+
 # LAB 1
 
 1. Create inputs for `name`, `email` and assign to the root scope on a `user` model like `user.name`, and `user.email`
