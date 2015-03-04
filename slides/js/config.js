@@ -105,11 +105,7 @@ var presentationConfig = {
 			"enabled": false
 		},
 		{
-			"enabled": true,
-			"visual": true,
-			"autorun": false,
-			"inline": false,
-			"html": "<!doctype html>\n<html>\n<head>\n\t<script>\n\tfunction captureLog( type ) {\n\t\treturn function () {\n\t\t\tparent.pipeLog( type, Array.prototype.slice.call( arguments ) );\n\t\t};\n\t}\n\tvar console = {\n\t\tlog:   captureLog( 'log' ),\n\t\tinfo:  captureLog( 'info' ),\n\t\twarn:  captureLog( 'warn' ),\n\t\terror: captureLog( 'error' )\n\t};\n\tvar alert = captureLog( 'alert' );\n</script>\n\n\n\t\n\t\t<script src='js/jquery.min_741c028fa98ab7caa5f63c1ce10f2922dcb0556c.js'></script>\n\t\n\t\t<script src='js/angular_035c40e4cbeea0abd134d03b1df835b819949948.js'></script>\n\t\n\t\t<style>body {\n  background-color: #ffffff;\n  font-family: arial, helvetica, sans-serif;\n  font-size: 18px;\n}</style>\n\t\n\t\t<script src='js/angular-route.min_5696bd8f1b0edb3a896f645d93de23cbb0babf1d.js'></script>\n\t\n</head>\n\n<body>\n\t\n\t\t<!DOCTYPE html>\n<html ng-app>\n<body>\n    <h1>Hello World</h1>\n</body>\n</html>\n\t\n</body>\n</html>\n"
+			"enabled": false
 		},
 		{
 			"enabled": false
